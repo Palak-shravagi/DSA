@@ -120,3 +120,68 @@ class Solution
 
 };
 ```
+
+Level Order Traversal of Tree
+```
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {    
+     vector<vector<int>>v;
+        if(root == NULL)return v;
+        queue<TreeNode*>q;
+        q.push(root);
+        while(!q.empty()){
+            int s = q.size();
+            vector<int>vt;
+            for(int i=0;i<s;i++){
+                TreeNode *node =  q.front();
+                q.pop();
+                if(node->left != NULL)q.push(node->left);
+                if(node->right != NULL)q.push(node->right);
+                vt.push_back(node->val);
+            }
+            v.push_back(vt);
+        }
+        return v;
+    }
+    
+};
+
+```
+
+Spiral level order traversal of Tree
+```
+
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>>v;
+        if(root == NULL)return v;
+        queue<TreeNode*>q;
+        q.push(root);
+         int flag = 0;
+        while(! q.empty()){
+            int size = q.size();
+            vector<int>temp_v;
+            for(int i=0;i<size;i++){   
+                root = q.front();
+                q.pop();
+                if(root->left != NULL)q.push(root->left);
+                if(root->right != NULL)q.push(root->right);
+                temp_v.push_back(root->val);
+            }
+            if(flag == 1){
+                reverse(temp_v.begin(),temp_v.end());
+                v.push_back(temp_v);
+            }else{
+                v.push_back(temp_v);
+            }
+            if(flag == 0)
+                flag = 1;
+            else
+                flag = 0;
+        }
+        return v;
+    }
+};
+```
