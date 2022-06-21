@@ -1,6 +1,8 @@
 # Tree
 
-##View of Tree
+## View of Tree
+
+
 LeftView of Tree 
 ```
 class Solution {
