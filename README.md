@@ -185,3 +185,39 @@ public:
     }
 };
 ```
+
+Height of Tree
+```
+class Solution{
+    public:
+    //Function to find the height of a binary tree.
+    int height(struct Node* node){
+     if(!node)return NULL;
+     int left =  height(node->left);
+     int right = height(node->right);
+     return 1 + max(left,right);
+        
+    }
+};
+```
+
+Diameter of Tree
+```
+class Solution {
+public:
+    int call_diameter(TreeNode *node ,int& diameter){
+        if(!node)return 0;
+        
+        int lh = call_diameter(node->left,diameter);
+        int rh = call_diameter(node->right,diameter);
+        diameter = max(diameter,lh+rh);
+        return 1 + max(lh,rh);
+    }
+    
+    int diameterOfBinaryTree(TreeNode* root) {
+        int diameter = 0;
+        call_diameter(root,diameter);
+        return diameter;
+    }
+};
+```
