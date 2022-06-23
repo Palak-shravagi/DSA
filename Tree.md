@@ -221,3 +221,21 @@ public:
     }
 };
 ```
+
+Balanced Binary Tree
+```
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        return diffOfTree(root) != -1;
+    }
+   int diffOfTree(TreeNode* root){
+       if(!root)return 0;
+       int left =  diffOfTree(root->left);
+       int right =  diffOfTree(root->right);
+       if(left == -1 || right == -1)return -1;
+       if(abs(left-right)>1)return -1;
+       return 1+max(left,right);
+   }
+};
+```
