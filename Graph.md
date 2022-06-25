@@ -49,7 +49,7 @@ class Solution {
     }
 };
 ```
-Check cycle in Undirected graph DFS
+##Check cycle in Undirected graph DFS
 ```
 
 class Solution {
@@ -84,7 +84,7 @@ public:
 
 
 ```
-Chech cyle in undirected graph BFS
+##Check cyle in undirected graph BFS
 ```
 class Solution {
 
