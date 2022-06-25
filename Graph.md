@@ -82,7 +82,42 @@ public:
 };
 
 
+```
 
+## Bipartite graph DFS
+```
+class Solution {
+public:
+
+    bool bipart(int i , vector<int>adj[],int color[]){
+        queue<int>q;
+        q.push(i);
+        color[i] = 1;
+        while(!q.empty()){
+            int node =  q.front();
+            q.pop();
+            for(auto it:adj[node]){
+                if(color[it] == -1){
+                    color[it] = 1- color[node];
+                    q.push(it);
+                }else if(color[it] == color[node])return false;
+            }
+        }
+        return true;
+    }
+	bool isBipartite(int V, vector<int>adj[]){
+	    // Code here
+	    int col[V];
+	    memset(col,-1,sizeof col);
+	    for(int i=0;i<V;i++){
+	        if(col[i] == -1){
+	            if(!bipart(i,adj,col))return false;
+	        }
+	    }
+	    
+	}
+
+};
 ```
 ## Check cyle in undirected graph BFS
 ```
