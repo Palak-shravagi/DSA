@@ -261,7 +261,7 @@ public:
 };
 ```
 
-# LCA of tree
+LCA of tree
 ```
 class Solution {
 public:
