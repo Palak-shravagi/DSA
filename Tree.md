@@ -304,3 +304,41 @@ public:
     }
 };
 ```
+
+Flatten Tree into Binary Tree
+```
+class Solution {
+public:
+    TreeNode *prev = NULL;
+    void flatten(TreeNode* root) {
+        if(root == NULL)return;
+        flatten(root->right);
+        flatten(root->left);
+        root->right = prev;
+        root->left =  NULL;  
+        prev =  root;
+    }
+};
+```
+
+Populating next right pointer
+```
+class Solution {
+public:
+    Node* connect(Node* root) {
+         if(root == NULL)return NULL;
+       Node *rt =  root;
+        while(rt != NULL && rt->left != NULL ){
+            Node *temp =  rt;
+            while(1){
+                temp->left->next =  temp->right;
+                if(temp->next == NULL)break;
+                temp->right->next =  temp->next->left;
+                temp = temp->next;
+            }
+             rt = rt->left;
+        }
+        return root;
+    }
+};
+```
