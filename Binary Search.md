@@ -58,3 +58,23 @@ int Solution::findMedian(vector<vector<int> > &A) {
 }
 
 ```
+Single element in sorted array
+```
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        int low = 0;
+        int high = nums.size()-2;
+        while(low<=high){
+            int mid  =  (low + high) >> 1;
+            if(nums[mid] ==  nums[mid^1])
+                low =  mid + 1;
+            // right half
+            else 
+                high =  mid - 1;
+            // left half;
+        }
+        return nums[low];
+    }
+};
+```
